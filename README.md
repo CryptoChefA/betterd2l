@@ -8,7 +8,7 @@
 Like [BetterCanvas](https://github.com/ksucpea/bettercanvas), but for D2L.
 
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.3.0-f58025)
+![Version](https://img.shields.io/badge/version-2.4.0-f58025)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![No tracking](https://img.shields.io/badge/tracking-none-brightgreen)
 
@@ -25,7 +25,7 @@ Like [BetterCanvas](https://github.com/ksucpea/bettercanvas), but for D2L.
 ### 🌙 Dark mode that actually works
 - **Smart mode** recolours D2L's own design tokens, then a colour fixer repairs everything else: hard-coded white panels, the audio player, instructor-written announcements, calendar widgets, and legacy pages that live in shadow DOM or iframes where normal CSS can't reach.
 - **Invert mode** is a fallback for pages where nothing else works.
-- **8 built-in themes**: Midnight, Langara Night, AMOLED, Graphite, Nord, Dracula, Solarized and Forest. You can pick any accent colour on top.
+- **9 built-in themes**: Midnight, Langara Night, AMOLED, Graphite, Nord, Dracula, Solarized, Forest and Rosé 🌸. You can pick any accent colour on top.
 - **Scheduling**: always on, follow your system setting, or a time window (e.g. 7 PM to 7 AM).
 - Brightness and contrast sliders, plus an optional **dark PDF pages** mode.
 - **Smooth transitions**: switching themes or turning dark mode on or off crossfades the whole page instead of snapping (respects *Reduce motion*).
@@ -130,7 +130,7 @@ Download the new version from [Releases](https://github.com/CryptoChefA/betterd2
 | **Settings page** (popup → *Courses, themes & homepage*) | Course nicknames, colours and images; theme builder and share codes; countdown options; widget toggles |
 | **Keyboard** | <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> toggles dark mode (change it at `chrome://extensions/shortcuts`) |
 
-**Something still looks bright?** Switch to **Invert** in the popup for that page, and please [open an issue](https://github.com/CryptoChefA/betterd2l/issues) with the page name. Leave out personal info.
+**Something still looks bright?** Switch to **Invert** in the popup for that page, and please [open an issue](https://github.com/CryptoChefA/betterd2l/issues) with the page name.
 
 ---
 

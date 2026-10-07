@@ -7,7 +7,8 @@ var BD_THEMES = {
   nord:      { name: 'Nord',          bg: '#2e3440', surface: '#3b4252', surface2: '#434c5e', border: '#4c566a', text: '#eceff4', accent: '#88c0d0' },
   dracula:   { name: 'Dracula',       bg: '#21222c', surface: '#282a36', surface2: '#343746', border: '#44475a', text: '#f8f8f2', accent: '#bd93f9' },
   solarized: { name: 'Solarized',     bg: '#002b36', surface: '#073642', surface2: '#0d4250', border: '#1d5563', text: '#eee8d5', accent: '#2aa198' },
-  forest:    { name: 'Forest',        bg: '#141a16', surface: '#1b231e', surface2: '#243029', border: '#34453a', text: '#e3ece5', accent: '#6fd08c' }
+  forest:    { name: 'Forest',        bg: '#141a16', surface: '#1b231e', surface2: '#243029', border: '#34453a', text: '#e3ece5', accent: '#6fd08c' },
+  rose:      { name: 'Rosé',          bg: '#1d1418', surface: '#27191f', surface2: '#33212a', border: '#4d3140', text: '#fbe7f0', accent: '#ff6fae' }
 };
 
 var BD_DEFAULTS = {

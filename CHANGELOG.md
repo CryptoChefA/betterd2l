@@ -3,6 +3,14 @@
 All notable changes to BetterD2L are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [2.4.0] - 2026-10-06
+
+### Added
+- 🌸 **Rosé** theme: deep plum backgrounds with a bubblegum-pink accent. That makes 9 built-in themes.
+
+### Changed
+- Tightened the website and README copy.
+
 ## [2.3.0] - 2026-10-06
 
 ### Added
@@ -61,6 +69,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Added
 - First release: Smart and Invert dark mode for Langara D2L.
 
+[2.4.0]: https://github.com/CryptoChefA/betterd2l/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/CryptoChefA/betterd2l/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/CryptoChefA/betterd2l/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/CryptoChefA/betterd2l/releases/tag/v2.2.0
