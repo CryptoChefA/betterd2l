@@ -2,6 +2,7 @@
 
 ## 2.2.1
 - Custom course images now also replace the banner on the course homepage
+- Fix: the popup's "Courses, themes & homepage" button could fail with "Could not create an options page"; it now falls back to opening the settings in a tab
 - Nicknames and card images apply faster after D2L renders (less flash of the original)
 
 ## 2.2.0

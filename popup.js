@@ -46,7 +46,15 @@ function buildThemes() {
     $('themes').appendChild(b);
   }
 }
-$('openOptions').onclick = () => chrome.runtime.openOptionsPage();
+// openOptionsPage() can reject ("Could not create an options page"), so fall back to a plain tab.
+$('openOptions').onclick = async () => {
+  try {
+    await chrome.runtime.openOptionsPage();
+  } catch {
+    await chrome.tabs.create({ url: chrome.runtime.getURL('options.html') });
+  }
+  window.close();
+};
 for (const b of $('mode').children) b.onclick = () => set({ mode: b.dataset.v });
 
 $('enabled').onchange = (e) => set({ enabled: e.target.checked });
