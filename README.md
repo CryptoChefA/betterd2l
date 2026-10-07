@@ -103,8 +103,8 @@ Font choices (System, Rounded, Monospace, Dyslexia-friendly), rounded corners, a
 
 BetterD2L isn't on the Chrome Web Store yet, so you load it in developer mode. It takes about a minute.
 
-1. **Download** this repo: click the green **Code** button, then **Download ZIP**, and unzip it.
-   (Or run `git clone https://github.com/CryptoChefA/betterd2l.git`.)
+1. **Download** the latest **`betterd2l-vX.Y.Z.zip`** from [Releases](https://github.com/CryptoChefA/betterd2l/releases/latest) and unzip it.
+   (Or click **Code → Download ZIP**, or run `git clone https://github.com/CryptoChefA/betterd2l.git`.)
 2. Open **`chrome://extensions`** in Chrome.
 3. Turn on **Developer mode** (top-right switch).
 4. Click **Load unpacked** and select the `betterd2l` folder (the one containing `manifest.json`).
@@ -115,7 +115,7 @@ BetterD2L isn't on the Chrome Web Store yet, so you load it in developer mode. I
 It also works in other Chromium browsers (Edge, Brave, Arc, Opera) the same way.
 
 ### Updating
-Download the new version, replace the folder's contents, then click **↻** on the BetterD2L card in `chrome://extensions`. Your settings are kept.
+Download the new version from [Releases](https://github.com/CryptoChefA/betterd2l/releases) (see the [changelog](CHANGELOG.md) for what's new), replace the folder's contents, then click **↻** on the BetterD2L card in `chrome://extensions`. Your settings are kept.
 
 ---
 
