@@ -8,7 +8,7 @@ function paintPopup() {
 }
 
 function render() {
-  if ($('themes').children.length !== Object.keys({ ...BD_THEMES, ...(s.customThemes || {}) }).length) buildThemes();
+  if ($('themes').children.length !== Object.keys({ ...BD_THEMES, ...(s.customThemes || {}) }).length + 1) buildThemes();
   $('enabled').checked = s.enabled;
   for (const b of $('themes').children) b.setAttribute('aria-pressed', b.dataset.v === s.theme);
   for (const b of $('mode').children) b.setAttribute('aria-pressed', b.dataset.v === s.mode);
@@ -46,16 +46,26 @@ function buildThemes() {
     b.onclick = () => set({ theme: key, accent: '' });
     $('themes').appendChild(b);
   }
+  const add = document.createElement('button');
+  add.className = 'create';
+  add.title = 'Make your own theme';
+  add.innerHTML = '<div class="swatch plus">+</div><span>Create</span>';
+  add.onclick = () => openSettings('themes');
+  $('themes').appendChild(add);
 }
-// openOptionsPage() can reject ("Could not create an options page"), so fall back to a plain tab.
-$('openOptions').onclick = async () => {
+// openOptionsPage() can reject ("Could not create an options page"), and it can't
+// target a tab, so open the settings page directly and fall back to it.
+async function openSettings(tab) {
+  const url = chrome.runtime.getURL('options.html' + (tab ? '#' + tab : ''));
   try {
-    await chrome.runtime.openOptionsPage();
+    if (tab) await chrome.tabs.create({ url });
+    else await chrome.runtime.openOptionsPage();
   } catch {
-    await chrome.tabs.create({ url: chrome.runtime.getURL('options.html') });
+    await chrome.tabs.create({ url });
   }
   window.close();
-};
+}
+$('openOptions').onclick = () => openSettings();
 for (const b of $('mode').children) b.onclick = () => set({ mode: b.dataset.v });
 
 $('enabled').onchange = (e) => set({ enabled: e.target.checked });

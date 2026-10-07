@@ -3,6 +3,16 @@
 All notable changes to BetterD2L are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [2.5.0] - 2026-10-06
+
+### Added
+- 🖌️ **+ Create** tile in the popup's theme grid that opens the theme builder directly.
+- 🎨 **Theme maker on the website**: pick six colours, preview them live on the page, and copy a `BD2L:` code to import into BetterD2L.
+
+### Changed
+- Website SEO: a keyword-targeted title and description, canonical URL, structured data (app details, FAQ and website info, eligible for Google rich results), a sitemap, a 1200×630 link-preview image, search-focused FAQ entries, and descriptive alt text.
+- Website speed: the hero demo is now a 222 KB looping video (the 4 MB GIF is the fallback), and images have fixed dimensions so the page doesn't shift while loading.
+
 ## [2.4.0] - 2026-10-06
 
 ### Added
@@ -69,6 +79,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Added
 - First release: Smart and Invert dark mode for Langara D2L.
 
+[2.5.0]: https://github.com/CryptoChefA/betterd2l/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/CryptoChefA/betterd2l/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/CryptoChefA/betterd2l/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/CryptoChefA/betterd2l/compare/v2.2.0...v2.2.1

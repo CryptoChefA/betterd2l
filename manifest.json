@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "BetterD2L",
-  "version": "2.4.0",
-  "description": "Dark mode, themes and tweaks for Langara's Brightspace (D2L) \u2014 like BetterCanvas, for D2L.",
+  "version": "2.5.0",
+  "description": "Dark mode, themes, exam countdowns and custom course cards for Langara D2L (Brightspace). Like BetterCanvas, for D2L.",
   "permissions": [
     "storage",
     "unlimitedStorage"

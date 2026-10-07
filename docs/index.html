@@ -1,20 +1,174 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BetterD2L: dark mode and upgrades for Langara D2L</title>
-<meta name="description" content="Free Chrome extension for Langara's Brightspace (D2L): real dark mode, 9 themes, exam countdowns, custom course cards and colour coding. Like BetterCanvas, for D2L.">
+<title>Langara D2L Dark Mode &amp; Themes | BetterD2L (Free)</title>
+<meta name="description" content="Get dark mode on Langara D2L (Brightspace). Free Chrome extension with 9 themes, exam countdowns and custom course cards. Like BetterCanvas, for D2L.">
+<meta name="keywords" content="Langara D2L, Langara Brightspace, d2l.langara.bc.ca, D2L dark mode, Brightspace dark mode, Langara dark mode, BetterD2L, Better D2L, BetterCanvas for D2L, D2L themes, Brightspace extension, Langara College">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://cryptochefa.github.io/betterd2l/">
+<meta name="author" content="CryptoChefA">
 <meta name="theme-color" content="#16181c">
 <link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preload" as="image" href="screenshots/demo-poster.jpg" fetchpriority="high">
 
-<!-- Link previews (iMessage, Discord, Reddit, Instagram DMs…) -->
+<!-- Link previews (iMessage, Discord, Reddit, Instagram DMs, X, LinkedIn) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="BetterD2L: dark mode for Langara D2L 🌙">
-<meta property="og:description" content="Real dark mode, 9 themes, exam countdowns and custom course cards for Brightspace. Free.">
+<meta property="og:site_name" content="BetterD2L">
+<meta property="og:locale" content="en_CA">
+<meta property="og:title" content="BetterD2L: Dark mode &amp; themes for Langara D2L 🌙">
+<meta property="og:description" content="Real dark mode, 9 themes, exam countdowns and custom course cards for Langara's Brightspace. Free Chrome extension.">
 <meta property="og:url" content="https://cryptochefa.github.io/betterd2l/">
-<meta property="og:image" content="https://cryptochefa.github.io/betterd2l/screenshots/homepage-countdown.jpg">
+<meta property="og:image" content="https://cryptochefa.github.io/betterd2l/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BetterD2L: dark mode and themes for Langara D2L">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BetterD2L: Dark mode &amp; themes for Langara D2L">
+<meta name="twitter:description" content="Free Chrome extension: dark mode, 9 themes, exam countdowns and custom course cards for Brightspace.">
+<meta name="twitter:image" content="https://cryptochefa.github.io/betterd2l/og.png">
+
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BetterD2L",
+  "alternateName": [
+   "Better D2L",
+   "BetterD2L for Langara",
+   "D2L Dark Mode"
+  ],
+  "description": "Free Chrome extension that adds dark mode, 9 themes, exam countdowns, custom course cards and colour coding to Langara College's D2L (Brightspace).",
+  "applicationCategory": "BrowserApplication",
+  "applicationSubCategory": "Browser extension",
+  "operatingSystem": "Chrome, Edge, Brave, Arc (Windows, macOS, ChromeOS, Linux)",
+  "softwareVersion": "2.4.0",
+  "url": "https://cryptochefa.github.io/betterd2l/",
+  "downloadUrl": "https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip",
+  "installUrl": "https://cryptochefa.github.io/betterd2l/#install",
+  "image": "https://cryptochefa.github.io/betterd2l/og.png",
+  "screenshot": [
+   "https://cryptochefa.github.io/betterd2l/screenshots/homepage-countdown.jpg",
+   "https://cryptochefa.github.io/betterd2l/screenshots/course-after.jpg",
+   "https://cryptochefa.github.io/betterd2l/screenshots/settings-themes.jpg"
+  ],
+  "featureList": [
+   "Dark mode for D2L / Brightspace",
+   "9 built-in themes and a custom theme builder",
+   "Exam and assignment countdown",
+   "Custom course names, colours and images",
+   "Course colour coding",
+   "Hide homepage widgets",
+   "Smooth theme transitions"
+  ],
+  "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "CAD"
+  },
+  "isAccessibleForFree": true,
+  "license": "https://opensource.org/licenses/MIT",
+  "author": {
+   "@type": "Person",
+   "name": "CryptoChefA",
+   "url": "https://github.com/CryptoChefA"
+  },
+  "audience": {
+   "@type": "EducationalAudience",
+   "educationalRole": "student",
+   "audienceType": "Langara College students"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "BetterD2L",
+  "url": "https://cryptochefa.github.io/betterd2l/",
+  "inLanguage": "en-CA"
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Does Langara D2L have a dark mode?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Not built in. Langara's D2L (Brightspace) only comes in a bright white theme. BetterD2L is a free Chrome extension that adds a real dark mode to d2l.langara.bc.ca, along with 9 themes, exam countdowns and custom course cards."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How do I turn on dark mode in Langara D2L?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Install BetterD2L: download betterd2l.zip, open chrome://extensions, turn on Developer mode, click Load unpacked and pick the betterd2l folder. The next time you open Langara D2L it's dark. Press Alt+Shift+D to toggle it."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is BetterD2L like BetterCanvas?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. BetterCanvas is a popular extension for Canvas, and BetterD2L brings the same kind of upgrades to Brightspace (D2L): dark mode, themes, custom course cards, colour coding and deadline countdowns."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is it safe? Why does Chrome say \"developer mode\"?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Developer mode just means the extension was loaded from a folder instead of the Chrome Web Store. The code is all public on GitHub, so you (or a CS friend) can read every line. It only runs on Langara's D2L and never sends data anywhere."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Does it work on Mac, Windows and Chromebook?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. It works anywhere Chrome runs, plus Edge, Brave, Arc and Opera. Safari and Firefox aren't supported yet."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Can it break D2L or my submissions?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. It only changes how pages look and reads your course dates. It never submits, posts or edits anything. If a page ever looks off, press Alt+Shift+D to turn it off instantly."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Something still looks bright. What do I do?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Switch to Invert mode in the popup for now, and open an issue saying which page it was."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "How do I update?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Download the new zip, replace your betterd2l folder's contents, then hit ↻ on BetterD2L in chrome://extensions. Your settings stay put. See the changelog for what's new."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is this made by Langara or D2L?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. It's an independent student project, not affiliated with Langara College or D2L Corporation."
+    }
+   }
+  ]
+ }
+]
+</script>
 
 <style>
   :root {
@@ -33,7 +187,7 @@
   }
   .card, .step, .shot, .pill, nav, .swatches button, .faq details { transition: background-color .45s ease, border-color .45s ease, color .45s ease; }
   a { color: var(--accent); }
-  img { max-width: 100%; height: auto; display: block; }
+  img, video { max-width: 100%; height: auto; display: block; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 
   /* Nav */
@@ -128,6 +282,31 @@
 
   .final { text-align: center; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 10%, transparent)); border-top: 1px solid var(--border); }
 
+
+  /* Custom theme maker */
+  .maker { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .maker { grid-template-columns: 1fr; } }
+  .maker h2, .maker .sub { text-align: left; margin-left: 0; }
+  .fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 480px) { .fields { grid-template-columns: repeat(2, 1fr); } }
+  .field { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 14px; font-weight: 600; transition: background-color .45s ease, border-color .45s ease; }
+  .field input[type=color] { width: 34px; height: 28px; border: 1px solid var(--border); border-radius: 8px; padding: 2px; background: none; cursor: pointer; flex: none; }
+  .namerow { display: flex; gap: 10px; margin: 14px 0; flex-wrap: wrap; }
+  .namerow input { flex: 1 1 180px; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 999px; padding: 12px 18px; font: inherit; }
+  .codebox { background: var(--surface2); border: 1px dashed var(--border); border-radius: 12px; padding: 12px 14px; font: 12px ui-monospace, "SF Mono", Menlo, monospace; color: var(--muted); word-break: break-all; min-height: 46px; }
+  .howto { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+  .mock { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--bg); transition: background-color .45s ease, border-color .45s ease; }
+  .mock .band { height: 6px; background: var(--accent); transition: background-color .45s ease; }
+  .mock .bar { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--surface); border-bottom: 1px solid var(--border); font-weight: 800; transition: background-color .45s ease; }
+  .mock .bar span { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); display: inline-block; transition: background-color .45s ease; }
+  .mock .body { padding: 16px; display: grid; gap: 12px; }
+  .mock .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; transition: background-color .45s ease, border-color .45s ease; }
+  .mock .tile b { display: block; margin-bottom: 4px; }
+  .mock .tile p { margin: 0; color: var(--muted); font-size: 14px; }
+  .mock .tile a { color: var(--accent); }
+  .mock .chip { display: inline-block; margin-top: 10px; padding: 6px 12px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-weight: 800; font-size: 13px; }
+  .mock .input { margin-top: 10px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px; color: var(--muted); }
+
   @media (prefers-reduced-motion: reduce) { *, *::before { transition: none !important; } html { scroll-behavior: auto; } }
 </style>
 </head>
@@ -138,6 +317,7 @@
     <a class="brand" href="#"><img src="icon.png" alt="">BetterD2L</a>
     <div class="links">
       <a class="hide-sm" href="#features">Features</a>
+      <a class="hide-sm" href="#make">Make a theme</a>
       <a class="hide-sm" href="#install">Install</a>
       <a class="hide-sm" href="https://github.com/CryptoChefA/betterd2l">GitHub</a>
       <a class="btn btn-primary btn-sm dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">Get it free</a>
@@ -147,8 +327,8 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="eyebrow">🌙 For Langara Brightspace · Free &amp; open source</span>
-    <h1>D2L, but <em>actually</em> nice to look at.</h1>
+    <span class="eyebrow">🌙 Dark mode for Langara D2L (Brightspace) · Free &amp; open source</span>
+    <h1>Langara D2L, but <em>actually</em> nice to look at.</h1>
     <p class="lede">Real dark mode, 9 themes, exam countdowns and custom course cards for Langara's D2L. Like BetterCanvas, for Brightspace.</p>
     <div class="cta">
       <a class="btn btn-primary dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">
@@ -161,7 +341,10 @@
 
     <div class="demo">
       <div class="chrome"><i></i><i></i><i></i></div>
-      <img src="screenshots/demo.gif" width="900" height="564" alt="BetterD2L switching D2L from its stock white look through Midnight, Langara Night, Nord, Dracula, Forest and AMOLED themes">
+      <video autoplay muted loop playsinline preload="auto" width="900" height="564" poster="screenshots/demo-poster.jpg" aria-label="BetterD2L switching Langara D2L from its stock white look through the Midnight, Langara Night, Nord, Dracula, Forest and AMOLED themes">
+        <source src="screenshots/demo.mp4" type="video/mp4">
+        <img src="screenshots/demo.gif" width="900" height="564" alt="BetterD2L switching Langara D2L from its stock white look through dark themes">
+      </video>
     </div>
   </div>
 </header>
@@ -169,7 +352,7 @@
 <section id="features">
   <div class="wrap">
     <h2>Everything D2L should've shipped with</h2>
-    <p class="sub">It runs in the background on <code>d2l.langara.bc.ca</code>, so you set it up once and never think about it again.</p>
+    <p class="sub">BetterD2L upgrades Langara's Brightspace right where you use it, on <code>d2l.langara.bc.ca</code>. You set it up once and never think about it again.</p>
     <div class="grid">
       <div class="card"><div class="ico">🌙</div><h3>Dark mode that actually works</h3><p>Fixes the stuff other dark modes miss: the audio player, announcements, the calendar and pop-up menus.</p></div>
       <div class="card"><div class="ico">⏳</div><h3>Exam countdown</h3><p>"Midterm #1 opens in 16 days." Your quizzes, exams and due dates, pulled straight from D2L. Turns red when it's close.</p></div>
@@ -188,7 +371,31 @@
       <p class="sub">9 built-in themes, any accent colour, and smooth fades when you switch. Try it here: this page uses the same palettes.</p>
       <div class="swatches" id="swatches"></div>
     </div>
-    <div class="shot"><img src="screenshots/course-after.jpg" alt="A Langara course homepage in BetterD2L dark mode" loading="lazy"></div>
+    <div class="shot"><img src="screenshots/course-after.jpg" width="1144" height="757" decoding="async" alt="Langara D2L course homepage in BetterD2L dark mode with an exam countdown" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="make">
+  <div class="wrap maker">
+    <div>
+      <h2>Or make your own</h2>
+      <p class="sub">Pick six colours and this whole page previews them live. Then copy your theme code into BetterD2L, or send it to friends.</p>
+      <div class="fields" id="fields"></div>
+      <div class="namerow">
+        <input id="tname" maxlength="30" placeholder="Name your theme" value="My theme">
+        <button class="btn btn-primary btn-sm" id="copy" type="button">Copy theme code</button>
+      </div>
+      <div class="codebox" id="code"></div>
+      <p class="howto">In BetterD2L: click the moon icon → <b>🎨 Courses, themes &amp; homepage</b> → <b>Themes</b> → <b>Import a theme</b>, then paste. You can also build themes right inside the extension with the <b>+ Create</b> tile.</p>
+    </div>
+    <div class="mock" aria-label="Theme preview">
+      <div class="band"></div>
+      <div class="bar">Business Law <span></span></div>
+      <div class="body">
+        <div class="tile"><b>Announcements</b><p>Midterm #1 opens <a href="#make">Thursday, Oct 22</a>. Review chapters 1–4.</p><div class="input">Search topics…</div></div>
+        <div class="tile"><b>⏳ Upcoming</b><p>Case Assignment · due in 9 days</p><span class="chip">Submit</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -210,10 +417,10 @@
     <h2>See it on real pages</h2>
     <p class="sub">Straight from Langara's D2L.</p>
     <div class="gallery">
-      <figure class="shot-fig"><div class="shot"><img src="screenshots/homepage-cards.jpg" alt="Custom course cards and colour-coded Work To Do" loading="lazy"></div><figcaption>Custom course cards &amp; colour-coded Work To Do</figcaption></figure>
-      <figure class="shot-fig"><div class="shot"><img src="screenshots/grades.jpg" alt="Grades page in dark mode" loading="lazy"></div><figcaption>Grades, finally easy on the eyes</figcaption></figure>
-      <figure class="shot-fig"><div class="shot"><img src="screenshots/settings-themes.jpg" alt="Theme builder with live preview" loading="lazy"></div><figcaption>Theme builder with live preview &amp; share codes</figcaption></figure>
-      <figure class="shot-fig"><div class="shot"><img src="screenshots/settings-courses.jpg" alt="Course nicknames, colours and images" loading="lazy"></div><figcaption>Nicknames, colours &amp; card images</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/homepage-cards.jpg" width="1144" height="757" decoding="async" alt="Langara D2L homepage with BetterD2L custom course cards and colour-coded Work To Do" loading="lazy"></div><figcaption>Custom course cards &amp; colour-coded Work To Do</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/grades.jpg" width="1144" height="757" decoding="async" alt="Langara D2L grades page in dark mode" loading="lazy"></div><figcaption>Grades, finally easy on the eyes</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/settings-themes.jpg" width="2200" height="1800" decoding="async" alt="Theme builder with live preview" loading="lazy"></div><figcaption>Theme builder with live preview &amp; share codes</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/settings-courses.jpg" width="2200" height="1520" decoding="async" alt="Course nicknames, colours and images" loading="lazy"></div><figcaption>Nicknames, colours &amp; card images</figcaption></figure>
     </div>
   </div>
 </section>
@@ -233,8 +440,11 @@
 
 <section>
   <div class="wrap">
-    <h2>Questions</h2>
+    <h2>Langara D2L dark mode: FAQ</h2>
     <div class="faq" style="margin-top:28px">
+      <details><summary>Does Langara D2L have a dark mode?</summary><p>Not built in. Langara's D2L (Brightspace) only comes in a bright white theme. BetterD2L is a free Chrome extension that adds a real dark mode to d2l.langara.bc.ca, along with 9 themes, exam countdowns and custom course cards.</p></details>
+      <details><summary>How do I turn on dark mode in Langara D2L?</summary><p>Install BetterD2L: download <a href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">betterd2l.zip</a>, open <code>chrome://extensions</code>, turn on Developer mode, click Load unpacked and pick the betterd2l folder. The next time you open Langara D2L it's dark. Press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> to toggle it.</p></details>
+      <details><summary>Is BetterD2L like BetterCanvas?</summary><p>Yes. BetterCanvas is a popular extension for Canvas, and BetterD2L brings the same kind of upgrades to Brightspace (D2L): dark mode, themes, custom course cards, colour coding and deadline countdowns.</p></details>
       <details><summary>Is it safe? Why does Chrome say "developer mode"?</summary><p>Developer mode just means the extension was loaded from a folder instead of the Chrome Web Store. The code is all public on <a href="https://github.com/CryptoChefA/betterd2l">GitHub</a>, so you (or a CS friend) can read every line. It only runs on Langara's D2L and never sends data anywhere.</p></details>
       <details><summary>Does it work on Mac, Windows and Chromebook?</summary><p>Yes. It works anywhere Chrome runs, plus Edge, Brave, Arc and Opera. Safari and Firefox aren't supported yet.</p></details>
       <details><summary>Can it break D2L or my submissions?</summary><p>No. It only changes how pages look and reads your course dates. It never submits, posts or edits anything. If a page ever looks off, press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> to turn it off instantly.</p></details>
@@ -278,7 +488,7 @@
     return Math.round(x + (y - x) * t).toString(16).padStart(2, '0');
   }).join('');
   const box = document.getElementById('swatches');
-  function use(key) {
+  let use = function (key) {
     const [, bg, surface, surface2, border, text, accent] = THEMES[key];
     const r = document.documentElement.style;
     r.setProperty('--bg', bg); r.setProperty('--surface', surface); r.setProperty('--surface2', surface2);
@@ -286,7 +496,7 @@
     r.setProperty('--accent', accent); r.setProperty('--accent-ink', bg);
     document.querySelector('meta[name=theme-color]').content = bg;
     for (const b of box.children) b.setAttribute('aria-pressed', b.dataset.k === key);
-  }
+  };
   for (const [k, [name, bg, , surface2, , text, accent]] of Object.entries(THEMES)) {
     const b = document.createElement('button');
     b.dataset.k = k; b.setAttribute('aria-pressed', 'false'); b.title = name;
@@ -294,6 +504,46 @@
     b.onclick = () => use(k);
     box.appendChild(b);
   }
+
+  // ---- Custom theme maker: live page preview + BetterD2L share code (same format as the extension) ----
+  const FIELDS = [['bg', 'Background'], ['surface', 'Cards'], ['surface2', 'Inputs'], ['border', 'Borders'], ['text', 'Text'], ['accent', 'Accent']];
+  const fieldsBox = document.getElementById('fields');
+  const custom = {};
+  function encode(t) {
+    const o = { name: t.name }; for (const [k] of FIELDS) o[k] = t[k];
+    return 'BD2L:' + btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+  }
+  function applyCustom() {
+    const r = document.documentElement.style;
+    for (const [k] of FIELDS) r.setProperty('--' + k, custom[k]);
+    r.setProperty('--muted', mix(custom.bg, custom.text, .65));
+    r.setProperty('--accent-ink', custom.bg);
+    for (const b of box.children) b.setAttribute('aria-pressed', 'false');
+    document.getElementById('code').textContent = encode({ ...custom, name: document.getElementById('tname').value.trim() || 'My theme' });
+  }
+  function loadCustom(key) {
+    const [, bg, surface, surface2, border, text, accent] = THEMES[key];
+    Object.assign(custom, { bg, surface, surface2, border, text, accent });
+    for (const [k] of FIELDS) document.getElementById('c-' + k).value = custom[k];
+    document.getElementById('code').textContent = encode({ ...custom, name: document.getElementById('tname').value.trim() || 'My theme' });
+  }
+  for (const [k, label] of FIELDS) {
+    const f = document.createElement('label');
+    f.className = 'field';
+    f.innerHTML = `<span>${label}</span><input type="color" id="c-${k}" aria-label="${label} colour">`;
+    f.querySelector('input').addEventListener('input', (e) => { custom[k] = e.target.value; applyCustom(); });
+    fieldsBox.appendChild(f);
+  }
+  document.getElementById('tname').addEventListener('input', () => { if (custom.bg) document.getElementById('code').textContent = encode({ ...custom, name: document.getElementById('tname').value.trim() || 'My theme' }); });
+  document.getElementById('copy').addEventListener('click', async (e) => {
+    const code = document.getElementById('code').textContent;
+    try { await navigator.clipboard.writeText(code); e.target.textContent = 'Copied ✓'; }
+    catch { getSelection().selectAllChildren(document.getElementById('code')); e.target.textContent = 'Press ⌘C / Ctrl+C'; }
+    setTimeout(() => (e.target.textContent = 'Copy theme code'), 1800);
+  });
+  // Picking a preset also seeds the maker, so people can tweak an existing theme.
+  const baseUse = use;
+  use = (key) => { baseUse(key); loadCustom(key); };
   use('langara');
 </script>
 </body>

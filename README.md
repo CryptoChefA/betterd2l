@@ -4,17 +4,23 @@
 
 # BetterD2L
 
-**Dark mode, themes and real upgrades for Langara's Brightspace (D2L).**
+**Dark mode, themes and real upgrades for Langara D2L (Brightspace).**
 Like [BetterCanvas](https://github.com/ksucpea/bettercanvas), but for D2L.
 
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.4.0-f58025)
+![Version](https://img.shields.io/badge/version-2.5.0-f58025)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![No tracking](https://img.shields.io/badge/tracking-none-brightgreen)
 
 <img src="docs/screenshots/demo.gif" alt="BetterD2L switching D2L from stock white through Midnight, Langara Night, Nord, Dracula, Forest and AMOLED" width="820">
 
 **[🌐 Website](https://cryptochefa.github.io/betterd2l/)** · **[⬇️ Download](https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip)** · **[📝 Changelog](CHANGELOG.md)**
+
+</div>
+
+Langara's D2L (Brightspace, at `d2l.langara.bc.ca`) has no dark mode. **BetterD2L** is a free, open-source Chrome extension that adds one, plus themes, exam countdowns, custom course cards and colour coding. It's the BetterCanvas experience for Langara College students.
+
+<div align="center">
 
 </div>
 
@@ -63,8 +69,8 @@ Each course's colour follows it around:
 
 Your nicknames also replace the long course names in the top bar and the browser tab title.
 
-### 🖌️ Theme builder with share codes
-Build your own palette with a live preview. Click **Copy share code** to get a code like `BD2L:eyJuYW1l…` you can send to friends, who paste it into **Import a theme** to get the same look.
+### 🖌️ Make your own themes
+Click the **+ Create** tile in the popup, or try the [theme maker on the website](https://cryptochefa.github.io/betterd2l/#make). Build your own palette with a live preview. Click **Copy share code** to get a code like `BD2L:eyJuYW1l…` you can send to friends, who paste it into **Import a theme** to get the same look.
 
 ### 🧹 Hide clutter
 Turn off homepage widgets you never use, such as Tech Essentials, Land Acknowledgment or LSM Resources. New widgets are added to the list automatically as you visit pages.
