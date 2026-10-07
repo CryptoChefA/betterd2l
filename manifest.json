@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BetterD2L",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Dark mode, themes and tweaks for Langara's Brightspace (D2L) \u2014 like BetterCanvas, for D2L.",
   "permissions": [
     "storage",

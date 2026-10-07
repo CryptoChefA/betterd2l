@@ -88,7 +88,7 @@
   // ------------------------------------------------------ deep DOM watching
   const watched = new WeakSet();
   let timer = 0;
-  function schedule() { if (!timer) timer = setTimeout(() => { timer = 0; pass(); }, 200); }
+  function schedule() { if (!timer) timer = setTimeout(() => { timer = 0; pass(); }, 60); }
   function watch(root) {
     if (watched.has(root)) return;
     watched.add(root);
@@ -119,7 +119,11 @@
       if (v) el.style.setProperty(p, v, pr); else el.style.removeProperty(p);
     }
     styleOrig.clear();
-    for (const img of imgOrig.keys()) if (img.isConnected) img.src = imgOrig.get(img);
+    for (const [img, o] of imgOrig) {
+      if (!img.isConnected) continue;
+      if (o.srcset) img.setAttribute('srcset', o.srcset);
+      img.src = o.src;
+    }
     imgOrig.clear();
   }
 
@@ -163,13 +167,25 @@
       }
       nameEl.title = c.name;
     }
-    const img = sr.querySelector('img.d2l-organization-image-main');
-    const custom = local.courseImages[id];
-    if (img && custom && img.getAttribute('src') !== custom) {
-      if (!imgOrig.has(img)) imgOrig.set(img, img.getAttribute('src') || '');
-      img.removeAttribute('srcset');
-      img.src = custom;
-    }
+    swapImage(sr.querySelector('img.d2l-organization-image-main'), local.courseImages[id]);
+  }
+
+  function swapImage(img, custom) {
+    if (!img || !custom || img.getAttribute('src') === custom) return;
+    if (!imgOrig.has(img)) imgOrig.set(img, { src: img.getAttribute('src') || '', srcset: img.getAttribute('srcset') });
+    img.removeAttribute('srcset');
+    img.src = custom;
+  }
+
+  // Course homepage banner uses the course's custom image too.
+  function currentCourse() {
+    const m = location.href.match(/[?&]ou=(\d+)/) || location.pathname.match(/\/d2l\/home\/(\d+)/);
+    return m ? m[1] : null;
+  }
+  function fixBanner() {
+    const ou = currentCourse();
+    if (!ou) return;
+    for (const img of document.querySelectorAll('img.d2l-course-banner-image')) swapImage(img, local.courseImages[ou]);
   }
 
   // ------------------------------------------- nicknames + colours in text
@@ -342,6 +358,7 @@
       for (const card of root.querySelectorAll('d2l-my-courses-enrollment-card')) fixCard(card);
       if (matchers.length) tagText(root, matchers);
     });
+    fixBanner();
     renameTitle();
     handleWidgets();
   }

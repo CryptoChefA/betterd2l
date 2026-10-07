@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.1
+- Custom course images now also replace the banner on the course homepage
+- Nicknames and card images apply faster after D2L renders (less flash of the original)
+
 ## 2.2.0
 - ⏳ Exam and deadline countdown banner on the homepage and course homepages
 - 🎨 Custom course cards: nicknames, colours and your own images

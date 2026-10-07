@@ -8,7 +8,7 @@
 Like [BetterCanvas](https://github.com/ksucpea/bettercanvas), but for D2L.
 
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.2.0-f58025)
+![Version](https://img.shields.io/badge/version-2.2.1-f58025)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![No tracking](https://img.shields.io/badge/tracking-none-brightgreen)
 
@@ -46,7 +46,7 @@ A banner on your homepage and on every course homepage lists upcoming quizzes, e
 - Each row links straight to the quiz or assignment.
 
 ### 🎨 Custom course cards
-Rename courses (*"BUSM-1285-001 - Business Law 30253.202630"* becomes *"Business Law"*), give each one a colour, and set your own card image by uploading a picture or pasting a link.
+Rename courses (*"BUSM-1285-001 - Business Law 30253.202630"* becomes *"Business Law"*), give each one a colour, and set your own image by uploading a picture or pasting a link. It replaces both the course card and the banner on the course homepage.
 
 <img src="docs/screenshots/homepage-cards.jpg" alt="Custom course cards and colour-coded Work To Do" width="820">
 
