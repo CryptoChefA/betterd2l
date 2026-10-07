@@ -1,0 +1,47 @@
+* { box-sizing: border-box; }
+body {
+  width: 310px; margin: 0; font: 13px/1.35 system-ui, -apple-system, sans-serif;
+  background: var(--bd-bg); color: var(--bd-text); color-scheme: dark;
+}
+header { display: flex; align-items: center; justify-content: space-between; padding: 14px; background: var(--bd-surface); border-bottom: 1px solid var(--bd-border); }
+.brand { display: flex; gap: 10px; align-items: center; }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.brand b { display: block; font-size: 15px; }
+.brand span { color: var(--bd-muted); font-size: 11px; }
+section { padding: 10px 14px 6px; border-bottom: 1px solid var(--bd-border); }
+h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--bd-muted); margin: 2px 0 8px; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 32px; }
+.row em { font-style: normal; color: var(--bd-muted); }
+input[type=range] { width: 130px; accent-color: var(--bd-accent); }
+input[type=checkbox] { accent-color: var(--bd-accent); width: 16px; height: 16px; }
+select, input[type=time], button {
+  background: var(--bd-surface2); color: var(--bd-text); border: 1px solid var(--bd-border);
+  border-radius: 7px; padding: 4px 8px; font: inherit;
+}
+button { cursor: pointer; }
+input[type=color] { width: 30px; height: 26px; padding: 0; border: 1px solid var(--bd-border); border-radius: 6px; background: none; cursor: pointer; }
+.accent { display: flex; gap: 6px; align-items: center; }
+
+.themes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 6px; }
+.themes button { padding: 0; overflow: hidden; border-radius: 9px; border: 2px solid transparent; text-align: left; }
+.themes button[aria-pressed="true"] { border-color: var(--bd-accent); }
+.swatch { height: 26px; display: flex; }
+.swatch i { flex: 1; }
+.themes span { display: block; font-size: 10px; padding: 3px 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.seg { display: flex; background: var(--bd-surface2); border: 1px solid var(--bd-border); border-radius: 8px; padding: 2px; margin-bottom: 4px; }
+.seg button { flex: 1; border: 0; background: none; border-radius: 6px; }
+.seg button[aria-pressed="true"] { background: var(--bd-accent); color: var(--bd-bg); font-weight: 600; }
+
+.switch { position: relative; width: 40px; height: 22px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.switch i { position: absolute; inset: 0; background: var(--bd-border); border-radius: 22px; cursor: pointer; transition: .2s; }
+.switch i::after { content: ""; position: absolute; width: 16px; height: 16px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+.switch input:checked + i { background: var(--bd-accent); }
+.switch input:checked + i::after { transform: translateX(18px); }
+
+footer { padding: 10px 14px 12px; color: var(--bd-muted); font-size: 11px; }
+kbd { background: var(--bd-surface2); border: 1px solid var(--bd-border); border-radius: 4px; padding: 0 4px; font: 10px ui-monospace, monospace; }
+
+button.wide { width: 100%; padding: 9px; font-weight: 600; margin: 4px 0 6px; }
+button.wide:hover { border-color: var(--bd-accent); }

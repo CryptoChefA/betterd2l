@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="popup.css">
+<header>
+  <div class="brand"><img src="icons/48.png" alt=""><div><b>BetterD2L</b><span>for Langara Brightspace</span></div></div>
+  <label class="switch" title="Alt+Shift+D"><input type="checkbox" id="enabled"><i></i></label>
+</header>
+
+<section>
+  <h2>Theme</h2>
+  <div id="themes" class="themes"></div>
+  <div class="row">
+    <span>Accent colour</span>
+    <span class="accent"><input type="color" id="accent"><button id="resetAccent" title="Use theme accent">Reset</button></span>
+  </div>
+</section>
+
+<section>
+  <h2>Dark mode</h2>
+  <div class="seg" id="mode">
+    <button data-v="smart">Smart</button><button data-v="invert">Invert</button>
+  </div>
+  <div class="row"><span>When</span>
+    <select id="when">
+      <option value="always">Always</option>
+      <option value="system">Follow system</option>
+      <option value="schedule">On a schedule</option>
+    </select>
+  </div>
+  <div class="row" id="scheduleRow"><span>From</span><span><input type="time" id="from"> to <input type="time" id="to"></span></div>
+  <div class="row"><span>Brightness <em id="bv"></em></span><input type="range" id="brightness" min="60" max="120" step="5"></div>
+  <div class="row"><span>Contrast <em id="cv"></em></span><input type="range" id="contrast" min="60" max="130" step="5"></div>
+</section>
+
+<section>
+  <h2>Tweaks</h2>
+  <div class="row"><span>Font</span>
+    <select id="font">
+      <option value="default">D2L default</option>
+      <option value="system">System</option>
+      <option value="rounded">Rounded</option>
+      <option value="mono">Monospace</option>
+      <option value="dyslexic">Dyslexia-friendly</option>
+    </select>
+  </div>
+  <label class="row"><span>Rounded corners</span><input type="checkbox" id="rounded"></label>
+  <label class="row"><span>Hide course card images</span><input type="checkbox" id="hideCardImages"></label>
+  <label class="row"><span>Compact layout</span><input type="checkbox" id="compact"></label>
+  <label class="row"><span>Dark PDF pages</span><input type="checkbox" id="darkPdf"></label>
+</section>
+
+<section><button id="openOptions" class="wide">🎨 Courses, themes &amp; homepage →</button></section>
+
+<footer>Smart missing a spot? Try <b>Invert</b>. Toggle anytime with <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>.</footer>
+<script src="themes.js"></script>
+<script src="popup.js"></script>

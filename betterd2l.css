@@ -1,0 +1,147 @@
+/* =====================  SMART MODE  ===================== */
+html[data-bd-dark="smart"] { color-scheme: dark; }
+html[data-bd-dark="smart"][data-bd-filter] {
+  filter: brightness(var(--bd-brightness, 100%)) contrast(var(--bd-contrast, 100%));
+}
+
+html[data-bd-dark="smart"],
+html[data-bd-dark="smart"] body {
+  background-color: var(--bd-bg) !important;
+  color: var(--bd-text) !important;
+}
+
+html[data-bd-dark="smart"] :is(
+  .d2l-page-main, .d2l-page-main-padding, .d2l-box, .d2l-widget, .d2l-widget-content,
+  .d2l-tabs-layout, .d2l-navigation-s-main-wrapper, .d2l-navigation-s,
+  .d2l-collapsepane, .d2l-datalist, .d2l-table, table, thead, tbody, th, td, tr,
+  .d2l-htmleditor-container, .vui-input, .d2l-edit, .d2l-dialog, .d2l-popup,
+  .d2l-partial-render-shim1, .d2l-course-banner, .d2l-column-side-bg, .d2l-panel
+) {
+  background-color: var(--bd-surface) !important;
+  color: var(--bd-text) !important;
+  border-color: var(--bd-border) !important;
+}
+
+/* Legacy D2L wrappers: let the surrounding cell/widget colour show through */
+html[data-bd-dark="smart"] :is(.dco, .dco_c) { background-color: transparent !important; }
+/* Legacy homepage widgets (e.g. "Updates") render in an iframe: keep it transparent */
+html[data-bd-dark="smart"][data-bd-widget-frame],
+html[data-bd-dark="smart"][data-bd-widget-frame] body { background-color: transparent !important; }
+
+/* Navbar + mobile slide-out menu (hard-coded #fff in D2L CSS) */
+html[data-bd-dark="smart"] :is(
+  .d2l-navigation-s-mobile-menu-content, .d2l-navigation-s-title-container,
+  .d2l-branding-navigation-background-color, .d2l-navigation-s-header, .d2l-navigation-s-mobile-menu-nav
+) {
+  background-color: var(--bd-surface) !important;
+  color: var(--bd-text) !important;
+}
+html[data-bd-dark="smart"] .d2l-navigation-s-mobile-menu-mask { background-color: rgba(0, 0, 0, 0.6) !important; }
+html[data-bd-dark="smart"] .d2l-navigation-s-link { color: var(--bd-text) !important; }
+
+html[data-bd-dark="smart"] :is(th, .d2l-table-row-first, .d2l-grid-header) {
+  background-color: var(--bd-surface2) !important;
+}
+
+html[data-bd-dark="smart"] :is(input, textarea, select) {
+  background-color: var(--bd-surface2) !important;
+  color: var(--bd-text) !important;
+  border-color: var(--bd-border) !important;
+}
+
+html[data-bd-dark="smart"] a { color: var(--bd-accent); }
+html[data-bd-dark="smart"] a:hover { color: var(--bd-accent-hover); }
+html[data-bd-dark="smart"] a:visited { color: var(--bd-visited); }
+html[data-bd-dark="smart"] ::selection { background: var(--bd-accent); color: var(--bd-bg); }
+
+/* Instructor-authored content with hard-coded white / black */
+html[data-bd-dark="smart"] :is(
+  [style*="background-color: rgb(255, 255, 255)"], [style*="background-color:#fff"],
+  [style*="background-color: #fff"], [style*="background-color:#ffffff"],
+  [style*="background-color: #ffffff"], [style*="background: white"],
+  [style*="background-color: white"], [bgcolor="#ffffff"], [bgcolor="white"]
+) {
+  background-color: var(--bd-surface) !important;
+}
+html[data-bd-dark="smart"] :is(
+  [style*="color: rgb(0, 0, 0)"], [style*="color:#000"], [style*="color: #000"],
+  [style*="color: black"], [style*="color:black"], font[color="#000000"], font[color="black"]
+) {
+  color: var(--bd-text) !important;
+}
+
+html[data-bd-dark="smart"] ::-webkit-scrollbar { background: var(--bd-surface); width: 12px; height: 12px; }
+html[data-bd-dark="smart"] ::-webkit-scrollbar-thumb { background: var(--bd-border); border-radius: 6px; border: 3px solid var(--bd-surface); }
+
+/* Optional: dark PDF pages in the built-in PDF viewer */
+html[data-bd-dark-pdf] .pdfViewer .page { background: #111 !important; }
+html[data-bd-dark-pdf] .pdfViewer .page canvas { filter: invert(0.9) hue-rotate(180deg); }
+
+/* =====================  INVERT MODE  ===================== */
+html[data-bd-dark="invert"] {
+  background: #fff;
+  filter: invert(1) hue-rotate(180deg) brightness(var(--bd-brightness, 100%)) contrast(var(--bd-contrast, 100%));
+}
+html[data-bd-dark="invert"] :is(
+  img, picture, video, canvas, svg image, embed, object,
+  iframe[src*="youtube"], iframe[src*="vimeo"], iframe[src*="kaltura"], iframe[src*="echo360"],
+  [style*="background-image"]
+) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* =====================  TWEAKS  ===================== */
+html[data-bd-font="system"]   :is(body, body *:not(i):not([class*="icon"])) { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; }
+html[data-bd-font="rounded"]  :is(body, body *:not(i):not([class*="icon"])) { font-family: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", sans-serif !important; }
+html[data-bd-font="mono"]     :is(body, body *:not(i):not([class*="icon"])) { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace !important; }
+html[data-bd-font="dyslexic"] :is(body, body *:not(i):not([class*="icon"])) { font-family: "OpenDyslexic", "Comic Sans MS", "Comic Neue", sans-serif !important; letter-spacing: 0.02em; }
+
+html[data-bd-rounded] :is(d2l-card, .d2l-card, .d2l-widget, .d2l-box, d2l-button, .d2l-button, input, select, textarea) {
+  border-radius: 12px !important;
+}
+html[data-bd-rounded] :is(d2l-card, .d2l-card, .d2l-widget) { overflow: hidden; }
+
+html[data-bd-hide-card-images] d2l-card > [slot="header"],
+html[data-bd-hide-card-images] :is(d2l-course-image, .d2l-enrollment-card-image-container) {
+  display: none !important;
+}
+
+html[data-bd-compact] :is(.d2l-widget, .d2l-box, .d2l-page-main-padding) { padding: 8px !important; }
+html[data-bd-compact] :is(.d2l-widget, .d2l-box) { margin-bottom: 8px !important; }
+
+/* =====================  COUNTDOWN BANNER  ===================== */
+#bd-countdown {
+  margin: 0 0 18px; border-radius: 14px; overflow: hidden;
+  background: var(--bd-surface, #fff); color: var(--bd-text, #202122);
+  border: 1px solid var(--bd-border, #e3e9f1);
+  font-family: inherit;
+}
+#bd-countdown header {
+  padding: 10px 16px; font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  background: var(--bd-surface2, #f6f7f8); border-bottom: 1px solid var(--bd-border, #e3e9f1);
+}
+#bd-countdown .bd-cd-row {
+  display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+  color: inherit !important; text-decoration: none !important;
+  border-left: 4px solid var(--bd-cd-color);
+  border-bottom: 1px solid var(--bd-border, #e3e9f1);
+}
+#bd-countdown .bd-cd-row:last-child { border-bottom: 0; }
+#bd-countdown .bd-cd-row:hover { background: var(--bd-surface2, #f6f7f8); }
+#bd-countdown .bd-cd-main { flex: 1; min-width: 0; }
+#bd-countdown .bd-cd-main b { display: block; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#bd-countdown .bd-cd-main small { color: var(--bd-muted, #6e7477); font-size: 12px; }
+#bd-countdown .bd-cd-kind {
+  flex: none; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  padding: 3px 7px; border-radius: 6px; color: #fff; background: var(--bd-cd-color);
+}
+#bd-countdown .bd-cd-when {
+  flex: none; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+  background: var(--bd-surface2, #eef1f5); white-space: nowrap;
+}
+#bd-countdown .bd-cd-when.soon { background: #f2994a33; color: #f2994a; }
+#bd-countdown .bd-cd-when.urgent { background: #eb575733; color: #ff6b6b; }
+@media (max-width: 560px) {
+  #bd-countdown .bd-cd-row { flex-wrap: wrap; }
+  #bd-countdown .bd-cd-when { margin-left: auto; }
+}

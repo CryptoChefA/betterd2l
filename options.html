@@ -1,0 +1,94 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BetterD2L Settings</title>
+<link rel="stylesheet" href="options.css">
+<header class="top">
+  <img src="icons/48.png" alt="">
+  <div><h1>BetterD2L</h1><p>Customize your courses, themes and homepage</p></div>
+</header>
+
+<nav class="tabs">
+  <button data-tab="courses" class="on">Courses</button>
+  <button data-tab="themes">Themes</button>
+  <button data-tab="homepage">Homepage</button>
+</nav>
+
+<main>
+  <!-- COURSES -->
+  <section id="tab-courses" class="tab on">
+    <div class="card">
+      <h2>Your courses</h2>
+      <p class="hint">Give each course a short name, a colour and your own card image. The colour shows on course cards, the Work To Do list, the calendar, the countdown and the top bar inside the course.</p>
+      <div id="courseList"></div>
+      <p id="noCourses" class="empty" hidden>No courses yet. Open <a href="https://d2l.langara.bc.ca/d2l/home" target="_blank">your D2L homepage</a> once, then come back here.</p>
+    </div>
+    <div class="card">
+      <h2>Colour coding</h2>
+      <label class="row"><span><b>Use course colour inside each course</b><small>Tints the top bar, links and buttons</small></span><input type="checkbox" id="courseAccent"></label>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section id="tab-themes" class="tab">
+    <div class="card">
+      <h2>Theme builder</h2>
+      <div class="builder">
+        <div class="fields">
+          <label class="row"><span>Start from</span><select id="tbBase"></select></label>
+          <label class="row"><span>Name</span><input id="tbName" maxlength="30" placeholder="My theme"></label>
+          <label class="row"><span>Background</span><input type="color" id="tb-bg"></label>
+          <label class="row"><span>Cards / panels</span><input type="color" id="tb-surface"></label>
+          <label class="row"><span>Inputs / headers</span><input type="color" id="tb-surface2"></label>
+          <label class="row"><span>Borders</span><input type="color" id="tb-border"></label>
+          <label class="row"><span>Text</span><input type="color" id="tb-text"></label>
+          <label class="row"><span>Accent</span><input type="color" id="tb-accent"></label>
+          <div class="btns">
+            <button id="tbSave" class="primary">Save &amp; use theme</button>
+            <button id="tbReset">Reset</button>
+          </div>
+          <p id="tbEditing" class="hint" hidden></p>
+        </div>
+        <div class="preview" id="preview">
+          <div class="pv-band"></div>
+          <div class="pv-nav"><b>Business Law</b><span>⌂ ✉ 🔔</span></div>
+          <div class="pv-body">
+            <div class="pv-card"><h3>Announcements</h3><p>Midterm #1 is on <a>October 22</a>. Review chapters 1–4.</p><div class="pv-input">Search topics…</div></div>
+            <div class="pv-card"><h3>Grades</h3><p class="pv-muted">Case Assignment · – / 20</p><button class="pv-btn">Submit</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Your themes</h2>
+      <div id="customThemes"></div>
+      <p id="noThemes" class="empty">You haven't made any themes yet.</p>
+    </div>
+
+    <div class="card">
+      <h2>Import a theme</h2>
+      <p class="hint">Paste a share code from a friend (starts with <code>BD2L:</code>).</p>
+      <div class="import"><input id="importCode" placeholder="BD2L:…"><button id="importBtn" class="primary">Import</button></div>
+      <p id="importMsg" class="hint"></p>
+    </div>
+  </section>
+
+  <!-- HOMEPAGE -->
+  <section id="tab-homepage" class="tab">
+    <div class="card">
+      <h2>Countdown banner</h2>
+      <label class="row"><span><b>Show upcoming exams on homepages</b><small>Quizzes and exams with live countdowns</small></span><input type="checkbox" id="countdown"></label>
+      <label class="row"><span><b>Include assignment due dates</b></span><input type="checkbox" id="countdownAssignments"></label>
+    </div>
+    <div class="card">
+      <h2>Homepage widgets</h2>
+      <p class="hint">Turn off widgets you don't use. New widgets appear here after you visit a page that has them.</p>
+      <div id="widgetList"></div>
+      <p id="noWidgets" class="empty" hidden>Open your D2L homepage once to load the widget list.</p>
+    </div>
+  </section>
+</main>
+<div id="toast"></div>
+<script src="themes.js"></script>
+<script src="options.js"></script>

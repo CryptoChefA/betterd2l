@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "BetterD2L",
+  "version": "2.2.0",
+  "description": "Dark mode, themes and tweaks for Langara's Brightspace (D2L) \u2014 like BetterCanvas, for D2L.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "BetterD2L",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-dark": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Toggle BetterD2L dark mode"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://d2l.langara.bc.ca/*",
+        "https://brightspace.langara.ca/*"
+      ],
+      "css": [
+        "betterd2l.css"
+      ],
+      "js": [
+        "themes.js",
+        "content.js",
+        "features.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "options_page": "options.html"
+}
