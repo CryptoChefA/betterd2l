@@ -145,3 +145,10 @@ html[data-bd-compact] :is(.d2l-widget, .d2l-box) { margin-bottom: 8px !important
   #bd-countdown .bd-cd-row { flex-wrap: wrap; }
   #bd-countdown .bd-cd-when { margin-left: auto; }
 }
+
+/* =====================  SMOOTH THEME TRANSITIONS  ===================== */
+:root[data-bd-vt]::view-transition-old(root),
+:root[data-bd-vt]::view-transition-new(root) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}

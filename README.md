@@ -8,11 +8,13 @@
 Like [BetterCanvas](https://github.com/ksucpea/bettercanvas), but for D2L.
 
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?logo=googlechrome&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.2.1-f58025)
+![Version](https://img.shields.io/badge/version-2.3.0-f58025)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![No tracking](https://img.shields.io/badge/tracking-none-brightgreen)
 
-<img src="docs/screenshots/homepage-countdown.jpg" alt="BetterD2L homepage with exam countdown" width="820">
+<img src="docs/screenshots/demo.gif" alt="BetterD2L switching D2L from stock white through Midnight, Langara Night, Nord, Dracula, Forest and AMOLED" width="820">
+
+**[🌐 Website](https://cryptochefa.github.io/betterd2l/)** · **[⬇️ Download](https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip)** · **[📝 Changelog](CHANGELOG.md)**
 
 </div>
 
@@ -26,6 +28,7 @@ Like [BetterCanvas](https://github.com/ksucpea/bettercanvas), but for D2L.
 - **8 built-in themes**: Midnight, Langara Night, AMOLED, Graphite, Nord, Dracula, Solarized and Forest. You can pick any accent colour on top.
 - **Scheduling**: always on, follow your system setting, or a time window (e.g. 7 PM to 7 AM).
 - Brightness and contrast sliders, plus an optional **dark PDF pages** mode.
+- **Smooth transitions**: switching themes or turning dark mode on or off crossfades the whole page instead of snapping (respects *Reduce motion*).
 - Press <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd> anywhere to toggle it.
 
 <table>
@@ -103,7 +106,7 @@ Font choices (System, Rounded, Monospace, Dyslexia-friendly), rounded corners, a
 
 BetterD2L isn't on the Chrome Web Store yet, so you load it in developer mode. It takes about a minute.
 
-1. **Download** the latest **`betterd2l-vX.Y.Z.zip`** from [Releases](https://github.com/CryptoChefA/betterd2l/releases/latest) and unzip it.
+1. **Download** [**betterd2l.zip**](https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip) (always the latest version) and unzip it.
    (Or click **Code → Download ZIP**, or run `git clone https://github.com/CryptoChefA/betterd2l.git`.)
 2. Open **`chrome://extensions`** in Chrome.
 3. Turn on **Developer mode** (top-right switch).
@@ -154,7 +157,8 @@ betterd2l/
 ├── background.js      # keyboard shortcut handler
 ├── popup.html/css/js  # toolbar popup
 ├── options.html/css/js# full settings page
-└── icons/
+├── icons/
+└── docs/              # website (GitHub Pages), screenshots, docs
 ```
 
 How it works, and how to debug a page that still looks bright: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).

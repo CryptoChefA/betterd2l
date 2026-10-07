@@ -25,6 +25,7 @@ var BD_DEFAULTS = {
   hideCardImages: false,
   compact: false,
   darkPdf: false,
+  smoothTransitions: true, // crossfade when the theme / mode changes
 
   // Courses: { [orgUnitId]: { nick, color } }  (images live in storage.local)
   courses: {},

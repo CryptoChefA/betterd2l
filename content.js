@@ -222,6 +222,8 @@
         observers.clear(); pending.clear();
         this.reset();
       },
+      // Run any pending repairs right now (used inside a view transition).
+      flushNow() { if (timer) { clearTimeout(timer); timer = 0; } flush(); },
       reset() {
         for (const [el, rec] of changed) {
           for (const [prop, [v, p]] of Object.entries(rec)) {
@@ -234,10 +236,28 @@
     };
   })();
 
-  const load = () => chrome.storage.sync.get(BD_DEFAULTS, apply);
+  // Smooth theme changes: crossfade the whole page (including shadow DOM)
+  // with the View Transitions API. The first paint never animates.
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let painted = false, lastLook = '';
+  // Only theme / mode / on-off changes fade; sliders and colour pickers stay instant.
+  const lookOf = (s) => JSON.stringify([shouldBeDark(s) && s.mode, s.theme, bdGetTheme(s)]);
+  function applySmooth(s) {
+    const look = lookOf(s);
+    const animate = painted && look !== lastLook && isTop && s.smoothTransitions !== false &&
+      !reducedMotion.matches && document.startViewTransition && document.visibilityState === 'visible';
+    painted = true;
+    lastLook = look;
+    if (!animate) return apply(s);
+    root.setAttribute('data-bd-vt', '');
+    const vt = document.startViewTransition(() => { apply(s); fixer.flushNow(); });
+    vt.finished.finally(() => root.removeAttribute('data-bd-vt'));
+  }
+
+  const load = () => chrome.storage.sync.get(BD_DEFAULTS, applySmooth);
 
   apply(BD_DEFAULTS); // paint dark immediately to avoid a white flash
-  load();
+  chrome.storage.sync.get(BD_DEFAULTS, (s) => { apply(s); painted = true; lastLook = lookOf(s); });
   chrome.storage.onChanged.addListener(load);
   systemDark.addEventListener('change', () => apply(settings));
   setInterval(() => { if (settings.when === 'schedule') apply(settings); }, 60 * 1000);

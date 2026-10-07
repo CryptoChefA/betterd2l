@@ -3,6 +3,14 @@
 All notable changes to BetterD2L are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [2.3.0] - 2026-10-06
+
+### Added
+- ✨ **Smooth theme transitions**: switching themes, Smart/Invert mode or dark mode on/off now crossfades the whole page, including D2L's shadow-DOM components, using the View Transitions API. You can switch it off in the popup (*Tweaks → Smooth theme transitions*), and it turns off automatically when your system's *Reduce motion* setting is on. Sliders and colour pickers stay instant.
+- 🌐 **Website** at [cryptochefa.github.io/betterd2l](https://cryptochefa.github.io/betterd2l/): a one-page site with a download button, install steps, screenshots and an interactive theme picker.
+- 🎞️ **Demo GIF** at the top of the README.
+- Releases now include a stable **`betterd2l.zip`** download that always points to the latest version.
+
 ## [2.2.1] - 2026-10-06
 
 ### Added
@@ -53,6 +61,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Added
 - First release: Smart and Invert dark mode for Langara D2L.
 
+[2.3.0]: https://github.com/CryptoChefA/betterd2l/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/CryptoChefA/betterd2l/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/CryptoChefA/betterd2l/releases/tag/v2.2.0
 [2.1.0]: https://github.com/CryptoChefA/betterd2l/blob/main/CHANGELOG.md#210---2026-10-06

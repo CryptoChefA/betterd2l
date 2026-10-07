@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BetterD2L: dark mode and upgrades for Langara D2L</title>
+<meta name="description" content="Free Chrome extension for Langara's Brightspace (D2L): real dark mode, 8 themes, exam countdowns, custom course cards and colour coding. Like BetterCanvas, for D2L.">
+<meta name="theme-color" content="#16181c">
+<link rel="icon" href="icon.png">
+
+<!-- Link previews (iMessage, Discord, Reddit, Instagram DMs…) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BetterD2L: dark mode for Langara D2L 🌙">
+<meta property="og:description" content="Real dark mode, 8 themes, exam countdowns and custom course cards for Brightspace. Free.">
+<meta property="og:url" content="https://cryptochefa.github.io/betterd2l/">
+<meta property="og:image" content="https://cryptochefa.github.io/betterd2l/screenshots/homepage-countdown.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #16181c; --surface: #1e2127; --surface2: #272b33; --border: #3a3f4a;
+    --text: #e6e8eb; --muted: #a3abb8; --accent: #f58025; --accent-ink: #1a1612;
+    --radius: 16px;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    transition: background-color .45s ease, color .45s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card, .step, .shot, .pill, nav, .swatches button, .faq details { transition: background-color .45s ease, border-color .45s ease, color .45s ease; }
+  a { color: var(--accent); }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  nav .links { display: flex; gap: 22px; align-items: center; }
+  nav .links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; }
+  nav .links a:hover { color: var(--text); }
+  nav .links a.btn, nav .links a.btn:hover { color: var(--accent-ink); }
+  @media (max-width: 640px) { nav .links a.hide-sm { display: none; } }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 26px; border-radius: 999px; font-weight: 800; font-size: 17px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .15s ease, box-shadow .2s ease, background-color .45s ease; }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 10px 30px -10px var(--accent); }
+  .btn-primary:hover { box-shadow: 0 14px 36px -10px var(--accent); transform: translateY(-1px); }
+  .btn-ghost { color: var(--text); border-color: var(--border); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn-sm { padding: 8px 16px; font-size: 14px; }
+
+  /* Hero */
+  header.hero { padding: 72px 0 40px; text-align: center; position: relative; overflow: hidden; }
+  header.hero::before { content: ""; position: absolute; inset: -40% -10% auto; height: 520px; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 28%, transparent), transparent); filter: blur(20px); pointer-events: none; transition: background .45s ease; }
+  .eyebrow { display: inline-block; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 13px; font-weight: 600; position: relative; }
+  h1 { font-size: clamp(38px, 7vw, 68px); line-height: 1.05; letter-spacing: -.03em; margin: 18px auto 16px; max-width: 14ch; position: relative; }
+  h1 em { font-style: normal; color: var(--accent); transition: color .45s ease; }
+  .lede { color: var(--muted); font-size: clamp(17px, 2.2vw, 20px); max-width: 620px; margin: 0 auto 30px; position: relative; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .fine { color: var(--muted); font-size: 13px; margin-top: 14px; position: relative; }
+
+  .demo { margin: 48px auto 0; max-width: 960px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); position: relative; background: var(--surface); }
+  .demo .chrome { display: flex; gap: 7px; padding: 12px 14px; background: var(--surface2); border-bottom: 1px solid var(--border); }
+  .demo .chrome i { width: 12px; height: 12px; border-radius: 50%; background: var(--border); }
+  .demo .chrome i:nth-child(1) { background: #ff5f57; } .demo .chrome i:nth-child(2) { background: #febc2e; } .demo .chrome i:nth-child(3) { background: #28c840; }
+
+  /* Sections */
+  section { padding: 72px 0; }
+  h2 { font-size: clamp(28px, 4.4vw, 42px); letter-spacing: -.02em; line-height: 1.1; margin: 0 0 12px; text-align: center; }
+  .sub { color: var(--muted); text-align: center; max-width: 600px; margin: 0 auto 40px; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+  .card .ico { font-size: 26px; line-height: 1; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* Theme playground */
+  .play { display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; align-items: center; }
+  @media (max-width: 860px) { .play { grid-template-columns: 1fr; } }
+  .play h2, .play .sub { text-align: left; margin-left: 0; }
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .swatches button { border: 2px solid transparent; background: var(--surface); border-radius: 12px; padding: 0; overflow: hidden; cursor: pointer; color: var(--text); font: inherit; font-size: 12px; font-weight: 700; text-align: left; }
+  .swatches button[aria-pressed="true"] { border-color: var(--accent); }
+  .swatches .sw { display: flex; height: 34px; } .swatches .sw i { flex: 1; }
+  .swatches span { display: block; padding: 6px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .shot { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--surface); }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
+  @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 22px 22px 70px; position: relative; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; left: 20px; top: 20px; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 800; display: grid; place-items: center; transition: background-color .45s ease; }
+  .step h3 { margin: 0 0 4px; font-size: 17px; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+  code, kbd { font: 13px ui-monospace, "SF Mono", Menlo, monospace; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; color: var(--text); }
+  .center { text-align: center; margin-top: 28px; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
+  .gallery figure { margin: 0; }
+  .gallery figcaption { color: var(--muted); font-size: 14px; text-align: center; margin-top: 10px; }
+
+  /* Privacy + FAQ */
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .pill { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 10px 18px; font-weight: 600; font-size: 15px; }
+  .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 10px; }
+  .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+  .faq summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  .faq summary::after { content: "+"; color: var(--accent); font-size: 20px; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { color: var(--muted); margin: 10px 0 0; }
+
+  footer { border-top: 1px solid var(--border); padding: 36px 0 48px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  footer a { color: var(--muted); }
+
+  .final { text-align: center; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 10%, transparent)); border-top: 1px solid var(--border); }
+
+  @media (prefers-reduced-motion: reduce) { *, *::before { transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="icon.png" alt="">BetterD2L</a>
+    <div class="links">
+      <a class="hide-sm" href="#features">Features</a>
+      <a class="hide-sm" href="#install">Install</a>
+      <a class="hide-sm" href="https://github.com/CryptoChefA/betterd2l">GitHub</a>
+      <a class="btn btn-primary btn-sm dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">Get it free</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">🌙 For Langara Brightspace · Free &amp; open source</span>
+    <h1>D2L, but <em>actually</em> nice to look at.</h1>
+    <p class="lede">Real dark mode, 8 themes, exam countdowns and custom course cards for Langara's D2L. Like BetterCanvas, for Brightspace.</p>
+    <div class="cta">
+      <a class="btn btn-primary dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#fff"/><path d="M24 2a22 22 0 0 1 19.05 11H24a11 11 0 0 0-9.53 5.5L5.3 13.03A22 22 0 0 1 24 2z" fill="#ea4335"/><path d="M43.05 13A22 22 0 0 1 26.3 45.88l9.2-15.38A11 11 0 0 0 33.5 24a11 11 0 0 0-1.47-5.5L43.05 13z" fill="#fbbc04"/><path d="M26.3 45.88A22 22 0 0 1 5.3 13.03l9.17 5.47A11 11 0 0 0 24 35a11 11 0 0 0 11.5-4.5l-9.2 15.38z" fill="#34a853"/><circle cx="24" cy="24" r="8.5" fill="#4285f4" stroke="#fff" stroke-width="2.5"/></svg>
+        Add to Chrome, it's free
+      </a>
+      <a class="btn btn-ghost" href="#install">How to install</a>
+    </div>
+    <p class="fine">Chrome, Edge, Brave and Arc · No account · No tracking</p>
+
+    <div class="demo">
+      <div class="chrome"><i></i><i></i><i></i></div>
+      <img src="screenshots/demo.gif" width="900" height="564" alt="BetterD2L switching D2L from its stock white look through Midnight, Langara Night, Nord, Dracula, Forest and AMOLED themes">
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Everything D2L should've shipped with</h2>
+    <p class="sub">It runs in the background on <code>d2l.langara.bc.ca</code>, so you set it up once and never think about it again.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🌙</div><h3>Dark mode that actually works</h3><p>Fixes the stuff other dark modes miss: the audio player, announcements, the calendar and pop-up menus.</p></div>
+      <div class="card"><div class="ico">⏳</div><h3>Exam countdown</h3><p>"Midterm #1 opens in 16 days." Your quizzes, exams and due dates, pulled straight from D2L. Turns red when it's close.</p></div>
+      <div class="card"><div class="ico">🎨</div><h3>Custom course cards</h3><p>Rename <i>"BUSM-1285-001 - Business Law 30253.202630"</i> to <b>Business Law</b>. Pick a colour, set your own picture.</p></div>
+      <div class="card"><div class="ico">🌈</div><h3>Colour coding everywhere</h3><p>Each course's colour follows it to the cards, Work To Do, the calendar, and the top bar inside the course.</p></div>
+      <div class="card"><div class="ico">🖌️</div><h3>Build &amp; share themes</h3><p>Make your own palette with a live preview, then send friends a <code>BD2L:</code> code to copy your look.</p></div>
+      <div class="card"><div class="ico">🧹</div><h3>Hide the clutter</h3><p>Switch off homepage widgets you never use. Plus fonts, rounded corners, dark PDFs and a schedule.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="themes">
+  <div class="wrap play">
+    <div>
+      <h2>Pick your vibe</h2>
+      <p class="sub">8 built-in themes, any accent colour, and smooth fades when you switch. Try it here: this page uses the same palettes.</p>
+      <div class="swatches" id="swatches"></div>
+    </div>
+    <div class="shot"><img src="screenshots/course-after.jpg" alt="A Langara course homepage in BetterD2L dark mode" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install in about a minute</h2>
+    <p class="sub">BetterD2L isn't on the Chrome Web Store yet, so it loads in developer mode. That's the same extension, just installed by hand.</p>
+    <div class="steps">
+      <div class="step"><h3>Download &amp; unzip</h3><p>Grab <a class="dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">betterd2l.zip</a> and double-click it to unzip.</p></div>
+      <div class="step"><h3>Open extensions</h3><p>Go to <code>chrome://extensions</code> and switch on <b>Developer mode</b> (top right).</p></div>
+      <div class="step"><h3>Load it</h3><p>Click <b>Load unpacked</b>, pick the <code>betterd2l</code> folder, then open D2L. Done 🌙</p></div>
+    </div>
+    <p class="center"><a class="btn btn-primary dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">Download BetterD2L</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>See it on real pages</h2>
+    <p class="sub">Screenshots from Langara's D2L. The student's name is swapped out and instructor text is blurred.</p>
+    <div class="gallery">
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/homepage-cards.jpg" alt="Custom course cards and colour-coded Work To Do" loading="lazy"></div><figcaption>Custom course cards &amp; colour-coded Work To Do</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/grades.jpg" alt="Grades page in dark mode" loading="lazy"></div><figcaption>Grades, finally easy on the eyes</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/settings-themes.jpg" alt="Theme builder with live preview" loading="lazy"></div><figcaption>Theme builder with live preview &amp; share codes</figcaption></figure>
+      <figure class="shot-fig"><div class="shot"><img src="screenshots/settings-courses.jpg" alt="Course nicknames, colours and images" loading="lazy"></div><figcaption>Nicknames, colours &amp; card images</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Private by design</h2>
+    <p class="sub">BetterD2L doesn't have servers. Your stuff stays in your browser.</p>
+    <div class="pills">
+      <span class="pill">🚫 No tracking or analytics</span>
+      <span class="pill">🔒 Never sees your password</span>
+      <span class="pill">🏠 Only runs on Langara D2L</span>
+      <span class="pill">👀 100% open source</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Questions</h2>
+    <div class="faq" style="margin-top:28px">
+      <details><summary>Is it safe? Why does Chrome say "developer mode"?</summary><p>Developer mode just means the extension was loaded from a folder instead of the Chrome Web Store. The code is all public on <a href="https://github.com/CryptoChefA/betterd2l">GitHub</a>, so you (or a CS friend) can read every line. It only runs on Langara's D2L and never sends data anywhere.</p></details>
+      <details><summary>Does it work on Mac, Windows and Chromebook?</summary><p>Yes. It works anywhere Chrome runs, plus Edge, Brave, Arc and Opera. Safari and Firefox aren't supported yet.</p></details>
+      <details><summary>Can it break D2L or my submissions?</summary><p>No. It only changes how pages look and reads your course dates. It never submits, posts or edits anything. If a page ever looks off, press <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> to turn it off instantly.</p></details>
+      <details><summary>Something still looks bright. What do I do?</summary><p>Switch to <b>Invert</b> mode in the popup for now, and <a href="https://github.com/CryptoChefA/betterd2l/issues">open an issue</a> saying which page it was. Please leave out personal info.</p></details>
+      <details><summary>How do I update?</summary><p>Download the new zip, replace your <code>betterd2l</code> folder's contents, then hit ↻ on BetterD2L in <code>chrome://extensions</code>. Your settings stay put. See the <a href="https://github.com/CryptoChefA/betterd2l/blob/main/CHANGELOG.md">changelog</a> for what's new.</p></details>
+      <details><summary>Is this made by Langara or D2L?</summary><p>No. It's an independent student project, not affiliated with Langara College or D2L Corporation.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Your eyes will thank you.</h2>
+    <p class="sub">Free forever. Takes a minute. Works the next time you open D2L.</p>
+    <a class="btn btn-primary dl" href="https://github.com/CryptoChefA/betterd2l/releases/latest/download/betterd2l.zip">Add to Chrome, it's free</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>BetterD2L · MIT License · Not affiliated with Langara College or D2L Corporation.</span>
+    <span><a href="https://github.com/CryptoChefA/betterd2l">GitHub</a> · <a href="https://github.com/CryptoChefA/betterd2l/blob/main/docs/PRIVACY.md">Privacy</a> · <a href="https://github.com/CryptoChefA/betterd2l/issues">Report a bug</a></span>
+  </div>
+</footer>
+
+<script>
+  // The same palettes the extension ships with; clicking one recolours this page with a fade.
+  const THEMES = {
+    midnight:  ['Midnight',      '#16181c', '#1e2127', '#272b33', '#3a3f4a', '#e6e8eb', '#6cb4ff'],
+    langara:   ['Langara Night', '#1a1612', '#231e19', '#2e2721', '#453b31', '#f1e9e0', '#f58025'],
+    amoled:    ['AMOLED',        '#000000', '#0b0b0c', '#161618', '#2a2a2e', '#ececec', '#4fa3ff'],
+    graphite:  ['Graphite',      '#202124', '#292a2d', '#35363a', '#4a4b50', '#e8eaed', '#8ab4f8'],
+    nord:      ['Nord',          '#2e3440', '#3b4252', '#434c5e', '#4c566a', '#eceff4', '#88c0d0'],
+    dracula:   ['Dracula',       '#21222c', '#282a36', '#343746', '#44475a', '#f8f8f2', '#bd93f9'],
+    solarized: ['Solarized',     '#002b36', '#073642', '#0d4250', '#1d5563', '#eee8d5', '#2aa198'],
+    forest:    ['Forest',        '#141a16', '#1b231e', '#243029', '#34453a', '#e3ece5', '#6fd08c']
+  };
+  const mix = (a, b, t) => '#' + [1, 3, 5].map(i => {
+    const x = parseInt(a.slice(i, i + 2), 16), y = parseInt(b.slice(i, i + 2), 16);
+    return Math.round(x + (y - x) * t).toString(16).padStart(2, '0');
+  }).join('');
+  const box = document.getElementById('swatches');
+  function use(key) {
+    const [, bg, surface, surface2, border, text, accent] = THEMES[key];
+    const r = document.documentElement.style;
+    r.setProperty('--bg', bg); r.setProperty('--surface', surface); r.setProperty('--surface2', surface2);
+    r.setProperty('--border', border); r.setProperty('--text', text); r.setProperty('--muted', mix(bg, text, .65));
+    r.setProperty('--accent', accent); r.setProperty('--accent-ink', bg);
+    document.querySelector('meta[name=theme-color]').content = bg;
+    for (const b of box.children) b.setAttribute('aria-pressed', b.dataset.k === key);
+  }
+  for (const [k, [name, bg, , surface2, , text, accent]] of Object.entries(THEMES)) {
+    const b = document.createElement('button');
+    b.dataset.k = k; b.setAttribute('aria-pressed', 'false'); b.title = name;
+    b.innerHTML = `<div class="sw"><i style="background:${bg}"></i><i style="background:${surface2}"></i><i style="background:${accent}"></i></div><span>${name}</span>`;
+    b.onclick = () => use(k);
+    box.appendChild(b);
+  }
+  use('langara');
+</script>
+</body>
+</html>

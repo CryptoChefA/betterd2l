@@ -23,6 +23,7 @@ function render() {
   $('hideCardImages').checked = s.hideCardImages;
   $('compact').checked = s.compact;
   $('darkPdf').checked = s.darkPdf;
+  $('smoothTransitions').checked = s.smoothTransitions;
   paintPopup();
 }
 
@@ -66,7 +67,7 @@ $('to').onchange = (e) => set({ to: e.target.value });
 $('brightness').oninput = (e) => set({ brightness: +e.target.value });
 $('contrast').oninput = (e) => set({ contrast: +e.target.value });
 $('font').onchange = (e) => set({ font: e.target.value });
-for (const id of ['rounded', 'hideCardImages', 'compact', 'darkPdf']) $(id).onchange = (e) => set({ [id]: e.target.checked });
+for (const id of ['rounded', 'hideCardImages', 'compact', 'darkPdf', 'smoothTransitions']) $(id).onchange = (e) => set({ [id]: e.target.checked });
 
 if (store) store.get(BD_DEFAULTS, (saved) => { s = saved; render(); });
 else render();
